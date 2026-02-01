@@ -1,4 +1,4 @@
-name: Simple Python CI
+name: CI
 
 on:
   push:
@@ -7,17 +7,14 @@ on:
     branches: [ "main" ]
 
 jobs:
-  hello:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
-
-      - name: Run hello script
-        run: python hello.py
+      - name: Basic CI check
+        run: |
+          echo "CI is running for COMP2156"
+          ls -R
